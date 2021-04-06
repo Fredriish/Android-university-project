@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Dialer</string>
+    <string name="settings">SETTINGS</string>
+    <string name="callList">CALL LIST</string>
+    <string name="dial">DIAL</string>
+    <string name="map">MAP</string>
+    <string name="about">ABOUT</string>
+    <string name="welcomeText">What would you like to do?</string>
 </resources>
