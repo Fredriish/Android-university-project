@@ -31,7 +31,6 @@
         android:layout_width="@dimen/OptionWidth"
         android:layout_height="wrap_content"
         android:layout_marginBottom="70dp"
-        android:onClick="startDialer"
         android:text="@string/dial"
         app:layout_constraintBottom_toTopOf="@+id/settingsButton"
         app:layout_constraintEnd_toEndOf="parent"
