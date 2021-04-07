@@ -18,4 +18,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DialActivity.class);
         startActivity(intent);
     }
+    public void startCallList(View view){
+        Intent intent = new Intent(this, CallListActivity.class);
+        startActivity(intent);
+    }
 }
