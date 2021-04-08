@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/optionRow1"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintVertical_bias="0.47000003" />
 
     <TextView
         android:id="@+id/welcomeText"
@@ -78,6 +78,7 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/landScapeOptionMargin"
             android:layout_weight="1"
+            android:onClick="startSettings"
             android:text="@string/settings" />
 
         <Button

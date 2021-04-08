@@ -22,4 +22,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CallListActivity.class);
         startActivity(intent);
     }
+    public void startSettings(View view){
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
 }

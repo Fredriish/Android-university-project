@@ -10,6 +10,7 @@
         android:id="@+id/settingsButton"
         android:layout_width="@dimen/OptionWidth"
         android:layout_height="53dp"
+        android:onClick="startSettings"
         android:text="@string/settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
