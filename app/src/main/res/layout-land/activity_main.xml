@@ -7,63 +7,86 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/settingsButton"
-        android:layout_width="@dimen/OptionWidth"
-        android:layout_height="53dp"
-        android:text="@string/settings"
+        android:id="@+id/aboutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/about"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/callListButton"
-        android:layout_width="@dimen/OptionWidth"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="@string/callList"
-        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/dialButton"
-        android:layout_width="@dimen/OptionWidth"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
-        android:text="@string/dial"
-        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/mapButton"
-        android:layout_width="@dimen/OptionWidth"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/map"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsButton" />
-
-    <Button
-        android:id="@+id/aboutButton"
-        android:layout_width="@dimen/OptionWidth"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="@string/about"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsButton" />
+        app:layout_constraintTop_toBottomOf="@+id/optionRow1"
+        app:layout_constraintVertical_bias="0.39" />
 
     <TextView
         android:id="@+id/welcomeText"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/optionRowMaxWidth"
         android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
         android:text="@string/welcomeText"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/optionRow1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TableRow
+        android:id="@+id/optionRow1"
+        android:layout_width="@dimen/optionRowMaxWidth"
+        android:layout_height="@dimen/optionRowMaxHeight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/dialButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_column="0"
+            android:layout_marginRight="@dimen/landScapeOptionMargin"
+            android:layout_weight="1"
+            android:onClick="startDialer"
+            android:text="@string/dial" />
+
+        <Button
+            android:id="@+id/callListButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_column="1"
+            android:layout_marginLeft="@dimen/landScapeOptionMargin"
+            android:layout_weight="1"
+            android:onClick="startCallList"
+            android:text="@string/callList" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/optionRow2"
+        android:layout_width="@dimen/optionRowMaxWidth"
+        android:layout_height="@dimen/optionRowMaxHeight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optionRow1"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/settingsButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/landScapeOptionMargin"
+            android:layout_weight="1"
+            android:text="@string/settings" />
+
+        <Button
+            android:id="@+id/mapButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/landScapeOptionMargin"
+            android:layout_weight="1"
+            android:text="@string/map" />
+    </TableRow>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
