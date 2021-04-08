@@ -87,6 +87,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/landScapeOptionMargin"
             android:layout_weight="1"
+            android:onClick="startMaps"
             android:text="@string/map" />
     </TableRow>
 
