@@ -55,6 +55,7 @@
         android:layout_width="@dimen/OptionWidth"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
+        android:onClick="startAbout"
         android:text="@string/about"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
