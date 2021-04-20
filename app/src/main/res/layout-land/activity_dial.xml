@@ -10,9 +10,9 @@
         android:id="@+id/dialpadButton2"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintBottom_toTopOf="@+id/dialpadButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:message="GHI"
@@ -32,11 +32,11 @@
     <se.miun.frba1901.dt031g.dialer.DialpadButton
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="75dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialpadButton"
+        app:layout_constraintTop_toTopOf="parent"
         app:message="DEF"
         app:title="2" />
 
