@@ -19,19 +19,27 @@ public class DialpadButton extends LinearLayout {
     public TextView title;
     public TextView message;
 
+    public DialpadButton(Context context) {
+        super(context);
+        init(context, null);
+    }
     public DialpadButton(Context context, AttributeSet attrs) {
         super(context);
         init(context, attrs);
     }
     private void init(Context context, AttributeSet attrs){
         initLayoutAttributes();
-        TypedArray attributeArray = getContext().getTheme().obtainStyledAttributes(
-                attrs,
-                R.styleable.DialpadButton,
-                0,0);
-        CharSequence titleText = attributeArray.getText(R.styleable.DialpadButton_title);
-        CharSequence messageText = attributeArray.getText(R.styleable.DialpadButton_message);
-        attributeArray.recycle();
+        CharSequence titleText = "";
+        CharSequence messageText = "";
+        if(attrs != null) {
+            TypedArray attributeArray = getContext().getTheme().obtainStyledAttributes(
+                    attrs,
+                    R.styleable.DialpadButton,
+                    0, 0);
+            titleText = attributeArray.getText(R.styleable.DialpadButton_title);
+            messageText = attributeArray.getText(R.styleable.DialpadButton_message);
+            attributeArray.recycle();
+        }
 
         initComponents(context);
 
