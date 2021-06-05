@@ -74,7 +74,7 @@ public class DialpadButton extends LinearLayout {
                 ));
         message.setAutoSizeTextTypeUniformWithConfiguration(1,100
                 ,1, TypedValue.COMPLEX_UNIT_SP);
-        addFadeOnHoldAnimation(this, this);
+        addOnTouchListener(this, this, context);
         this.addView(title);
         this.addView(message);
     }
@@ -86,8 +86,10 @@ public class DialpadButton extends LinearLayout {
        @param targetView: View objektet som fade animationen ska ske på
        @param triggerView: View objektet som triggrar animationen
      */
-    private void addFadeOnHoldAnimation(View targetView, View triggerView){
+    private void addOnTouchListener(View targetView, View triggerView, Context context){
         ObjectAnimator alphaAnimation = ObjectAnimator.ofFloat(targetView, View.ALPHA, 0.3f);
+        DialpadButton thisReference = this; // Kan inte använda this keyword nedanför då vi skapar overridar
+        // ett interface så denna variabel används
         triggerView.setOnTouchListener(new OnTouchListener(){
             @Override
             public boolean onTouch(View v, MotionEvent event){
@@ -97,6 +99,7 @@ public class DialpadButton extends LinearLayout {
                 }
                 else if(event.getAction() == MotionEvent.ACTION_UP){
                     alphaAnimation.reverse();
+                    SoundPlayer.getInstance(context).playSound(thisReference);
                     return true;
                 }
                 return false;
