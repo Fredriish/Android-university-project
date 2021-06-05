@@ -16,9 +16,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class DialpadButton extends LinearLayout {
-    public TextView title;
-    public TextView message;
+    private TextView title;
+    private TextView message;
 
+    public CharSequence getTitle() {
+        return title.getText();
+    }
+
+    public CharSequence getMessage() {
+        return message.getText();
+    }
     public DialpadButton(Context context) {
         super(context);
         init(context, null);
