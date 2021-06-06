@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <se.miun.frba1901.dt031g.dialer.DialpadButton
+        android:id="@+id/Button_pound"
+        android:layout_width="@dimen/dialpadButtonWidth_landscape"
+        android:layout_height="@dimen/dialpadButtonHeight_landscape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:title="#" />
+
+    <se.miun.frba1901.dt031g.dialer.DialpadButton
+        android:id="@+id/Button_zero"
+        android:layout_width="@dimen/dialpadButtonWidth_landscape"
+        android:layout_height="@dimen/dialpadButtonHeight_landscape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:message="+"
+        app:title="0" />
+
+    <se.miun.frba1901.dt031g.dialer.DialpadButton
+        android:id="@+id/Button_star"
+        android:layout_width="@dimen/dialpadButtonWidth_landscape"
+        android:layout_height="@dimen/dialpadButtonHeight_landscape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:title="*" />
+
+    <se.miun.frba1901.dt031g.dialer.DialpadButton
+        android:id="@+id/Button_nine"
+        android:layout_width="@dimen/dialpadButtonWidth_landscape"
+        android:layout_height="@dimen/dialpadButtonHeight_landscape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:message="WXYZ"
+        app:title="9" />
+
+    <se.miun.frba1901.dt031g.dialer.DialpadButton
+        android:id="@+id/Button_eight"
+        android:layout_width="@dimen/dialpadButtonWidth_landscape"
+        android:layout_height="@dimen/dialpadButtonHeight_landscape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:message="TUV"
+        app:title="8" />
+
+    <se.miun.frba1901.dt031g.dialer.DialpadButton
+        android:id="@+id/Button_seven"
+        android:layout_width="@dimen/dialpadButtonWidth_landscape"
+        android:layout_height="@dimen/dialpadButtonHeight_landscape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:message="PQRS"
+        app:title="7" />
+
+    <se.miun.frba1901.dt031g.dialer.DialpadButton
+        android:id="@+id/Button_six"
+        android:layout_width="@dimen/dialpadButtonWidth_landscape"
+        android:layout_height="@dimen/dialpadButtonHeight_landscape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:message="MNO"
+        app:title="6" />
+
+    <se.miun.frba1901.dt031g.dialer.DialpadButton
+        android:id="@+id/Button_five"
+        android:layout_width="@dimen/dialpadButtonWidth_landscape"
+        android:layout_height="@dimen/dialpadButtonHeight_landscape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:message="JKL"
+        app:title="5" />
+
+    <se.miun.frba1901.dt031g.dialer.DialpadButton
+        android:id="@+id/Button_four"
+        android:layout_width="@dimen/dialpadButtonWidth_landscape"
+        android:layout_height="@dimen/dialpadButtonHeight_landscape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:message="GHI"
+        app:title="4" />
+
+    <se.miun.frba1901.dt031g.dialer.DialpadButton
+        android:id="@+id/Button_two"
+        android:layout_width="@dimen/dialpadButtonWidth_landscape"
+        android:layout_height="@dimen/dialpadButtonHeight_landscape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:message="ABC"
+        app:title="2" />
+
+    <se.miun.frba1901.dt031g.dialer.DialpadButton
+        android:id="@+id/Button_one"
+        android:layout_width="@dimen/dialpadButtonWidth_landscape"
+        android:layout_height="@dimen/dialpadButtonHeight_landscape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:title="1" />
+
+    <se.miun.frba1901.dt031g.dialer.DialpadButton
+        android:id="@+id/Button_three"
+        android:layout_width="@dimen/dialpadButtonWidth_landscape"
+        android:layout_height="@dimen/dialpadButtonHeight_landscape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:message="DEF"
+        app:title="3" />
+</androidx.constraintlayout.widget.ConstraintLayout>

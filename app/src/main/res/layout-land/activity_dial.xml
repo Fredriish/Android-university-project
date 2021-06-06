@@ -6,38 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".DialActivity">
 
-    <se.miun.frba1901.dt031g.dialer.DialpadButton
-        android:id="@+id/dialpadButton2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:message="GHI"
-        app:title="3" />
-
-    <se.miun.frba1901.dt031g.dialer.DialpadButton
-        android:id="@+id/dialpadButton"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:message="ABC"
-        app:title="1" />
-
-    <se.miun.frba1901.dt031g.dialer.DialpadButton
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:message="DEF"
-        app:title="2" />
-
+    <se.miun.frba1901.dt031g.dialer.Dialpad
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
