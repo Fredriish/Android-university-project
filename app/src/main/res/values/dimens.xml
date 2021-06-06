@@ -4,4 +4,8 @@
     <dimen name="optionRowMaxWidth">300dp</dimen>
     <dimen name="optionRowMaxHeight">50dp</dimen>
     <dimen name="landScapeOptionMargin">5dp</dimen>
+    <dimen name="dialpadButtonWidth">100dp</dimen>
+    <dimen name="dialpadButtonHeight">150dp</dimen>
+    <dimen name="dialpadButtonWidth_landscape">100dp</dimen>
+    <dimen name="dialpadButtonHeight_landscape">100dp</dimen>
 </resources>
