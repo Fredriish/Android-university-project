@@ -1,12 +1,12 @@
 package se.miun.frba1901.dt031g.dialer;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
     private boolean aboutOpened = false;
@@ -14,6 +14,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setupDeviceSoundFiles();
+    }
+
+    /** Kopierar voice filerna till enheten */
+    private void setupDeviceSoundFiles(){
+        if(!Util.defaultVoiceExist(getApplicationContext()))
+            Util.copyDefaultVoiceToInternalStorage(getApplicationContext());
     }
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState){

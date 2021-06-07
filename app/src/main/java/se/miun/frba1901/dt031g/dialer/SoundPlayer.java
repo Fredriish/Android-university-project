@@ -24,7 +24,7 @@ public class SoundPlayer {
     private static SoundPlayer instance = null;
 
     // Varje character motsvarar ett loaded sound
-    private Map<Character, Integer>soundMap;
+    private Map<String, Integer>soundMap;
     private SoundPlayer(Context context){
         soundMap = new HashMap<>();
 
@@ -34,7 +34,7 @@ public class SoundPlayer {
         .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
         .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
         .build()).build();
-        loadSounds(context, "raw"); // Laddar ljud
+        loadSounds(context, "mamacita_us"); // Laddar ljud
     }
     public static SoundPlayer getInstance(Context context){
         if(instance == null)
@@ -43,26 +43,18 @@ public class SoundPlayer {
     }
     // Voice anger vilket directory som vi ska ladda ljud ifrån, alltså vilken röst, just nu finns bara 1 alternativ
     private void loadSounds(Context context, String voice){
-        if(voice.equals("raw")){
-            soundMap.put('0', soundPool.load(context, R.raw.zero,1));
-            soundMap.put('1', soundPool.load(context, R.raw.one,1));
-            soundMap.put('2', soundPool.load(context, R.raw.two,1));
-            soundMap.put('3', soundPool.load(context, R.raw.three,1));
-            soundMap.put('4', soundPool.load(context, R.raw.four,1));
-            soundMap.put('5', soundPool.load(context, R.raw.five,1));
-            soundMap.put('6', soundPool.load(context, R.raw.six,1));
-            soundMap.put('7', soundPool.load(context, R.raw.seven,1));
-            soundMap.put('8', soundPool.load(context, R.raw.eight,1));
-            soundMap.put('9', soundPool.load(context, R.raw.nine,1));
-            soundMap.put('#', soundPool.load(context, R.raw.pound,1));
-            soundMap.put('*', soundPool.load(context, R.raw.star,1));
+        // Loopar igenom array som innehåller alla symboler
+        for(String symbol : Util.ALL_SYMBOLS) {
+            // Sätter in symbolen och ID som motsvarar den symbolen, till load() skickar vi in path till ljudfilen för motsvarande symbol
+            soundMap.put(symbol, soundPool.load(Util.getDirForVoice(context, voice).getPath() + "/" + Util.DEFAULT_VOICE_FILE_NAMES.get(symbol), 1));
         }
     }
 
     public void playSound(DialpadButton button){
-        Character c = button.getTitle().charAt(0); // Hämtar en character från knappens titel
-        //, denna character kommer att ge ljudet som vi vill starta om den anges i Map soundMap
-        soundPool.play(soundMap.get(c), 1f, 1f, 1, 0, 1f);
+        String str = button.getTitle().toString(); // Hämtar knappens titel
+        //, denna string kommer att ge ljudet som vi vill starta om den anges i Map soundMap
+
+        soundPool.play(soundMap.get(str), 1f, 1f, 1, 0, 1f);
     }
     public void destroy(){
         soundPool.release();
