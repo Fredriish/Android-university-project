@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="OptionWidth">400px</dimen>
+    <dimen name="OptionWidth">400dp</dimen>
     <dimen name="optionRowMaxWidth">300dp</dimen>
     <dimen name="optionRowMaxHeight">50dp</dimen>
     <dimen name="landScapeOptionMargin">5dp</dimen>
     <dimen name="dialpadButtonWidth">100dp</dimen>
-    <dimen name="dialpadButtonHeight">150dp</dimen>
-    <dimen name="dialpadButtonWidth_landscape">100dp</dimen>
-    <dimen name="dialpadButtonHeight_landscape">100dp</dimen>
+    <dimen name="dialpadButtonHeight">110dp</dimen>
+    <dimen name="dialpadButtonWidth_landscape">85dp</dimen>
+    <dimen name="dialpadButtonHeight_landscape">85dp</dimen>
 </resources>
