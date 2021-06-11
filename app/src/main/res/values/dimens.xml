@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="OptionWidth">400dp</dimen>
+    <dimen name="OptionWidth">200dp</dimen>
     <dimen name="optionRowMaxWidth">300dp</dimen>
     <dimen name="optionRowMaxHeight">50dp</dimen>
     <dimen name="landScapeOptionMargin">5dp</dimen>
