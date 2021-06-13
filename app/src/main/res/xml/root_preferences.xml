@@ -1,35 +1,14 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <PreferenceCategory app:title="@string/messages_header">
-
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory app:title="@string/sync_header">
-
-        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
-
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
-
-    </PreferenceCategory>
-
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SwitchPreference
+        android:defaultValue="true"
+        android:icon="@drawable/ic_baseline_save_24"
+        android:key="@string/store_numbers_key"
+        android:summary="Dialed telephone numbers are stored so they can be viewed later"
+        android:title="Store numbers" />
+    <Preference
+        android:icon="@drawable/ic_baseline_delete_forever_24"
+        android:key="@string/delete_stored_numbers_key"
+        android:summary="Delete stored telephone numbers from storage"
+        android:title="Delete stored numbers"></Preference>
 </PreferenceScreen>

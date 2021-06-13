@@ -8,4 +8,5 @@
     <dimen name="dialpadButtonHeight">110dp</dimen>
     <dimen name="dialpadButtonWidth_landscape">85dp</dimen>
     <dimen name="dialpadButtonHeight_landscape">85dp</dimen>
+    <dimen name="toolbar_height">50dp</dimen>
 </resources>
