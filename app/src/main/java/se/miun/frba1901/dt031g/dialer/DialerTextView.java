@@ -88,6 +88,7 @@ public class DialerTextView extends ConstraintLayout {
             getContext().startActivity(intent);
         }
     }
+    /* Sparar nummret med hjälp av sharedpreference API */
     private void saveNumber(CharSequence number){
         SharedPreferences dialNumberPreferences = getContext().getSharedPreferences(getContext()
                 .getString(R.string.saved_dialnumbers_filename), Context.MODE_PRIVATE);

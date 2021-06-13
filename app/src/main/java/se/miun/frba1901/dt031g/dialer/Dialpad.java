@@ -24,6 +24,8 @@ public class Dialpad extends ConstraintLayout {
 
     private void init(AttributeSet attrs){
         inflate(getContext(), R.layout.dialpad, this);
+        SoundPlayer.getInstance(getContext()); // Anropar getInstance på min singleton klass så att
+        // instansen konstrueras redan här
     }
 
     @Override

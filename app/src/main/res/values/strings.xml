@@ -14,4 +14,5 @@
     <string name="eraseIcon_description">Erase icon</string>
     <string name="saved_dialnumbers_filename">dialnumbers.txt</string>
     <string name="dialnumbers_key">dialnumbersKey</string>
+    <string name="no_numbers_found_message">No telephone numbers are stored</string>
 </resources>

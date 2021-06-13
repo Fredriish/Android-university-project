@@ -1,6 +1,7 @@
 package se.miun.frba1901.dt031g.dialer;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +13,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class SettingsActivity extends AppCompatActivity {
     @Override
@@ -52,8 +56,15 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             });
         }
-        private void deleteStoredNumbers(){
+        /* Tömmer nummren som har sparats med hjälp av sharedpreference API */
+        public void deleteStoredNumbers(){
+            SharedPreferences dialNumberPreferences = getContext().getSharedPreferences(getContext()
+                    .getString(R.string.saved_dialnumbers_filename), Context.MODE_PRIVATE);
 
+            Set<String> newNumberSet = new HashSet<String>();
+            SharedPreferences.Editor editor = dialNumberPreferences.edit();
+            editor.putStringSet(getContext().getString(R.string.dialnumbers_key), newNumberSet);
+            editor.apply();
         }
     }
 }
