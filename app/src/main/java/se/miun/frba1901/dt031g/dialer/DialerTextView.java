@@ -1,8 +1,11 @@
 package se.miun.frba1901.dt031g.dialer;
 
+import android.Manifest;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.net.Uri;
@@ -15,7 +18,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
 
 import java.io.File;
 import java.util.HashSet;
@@ -81,9 +86,18 @@ public class DialerTextView extends ConstraintLayout {
             if(SettingsActivity.shouldStoreNumbers(getContext())){
                 saveNumber(mainText.getText());
             }
-            Intent intent = new Intent(Intent.ACTION_DIAL);
-            Uri uri = Uri.parse("tel:" + Uri.encode(mainText.getText().toString()));
 
+            Intent intent;
+
+            // Kollar om vi har permission till att ringa direkt från denna app, annars så skapas Intent med
+            // ACTION.DIAL och öppnas genom dial appen
+            if(getContext().checkSelfPermission(Manifest.permission.CALL_PHONE)
+                    == PackageManager.PERMISSION_GRANTED)
+                intent = new Intent(Intent.ACTION_CALL);
+            else
+                intent = new Intent(Intent.ACTION_DIAL);
+
+            Uri uri = Uri.parse("tel:" + Uri.encode(mainText.getText().toString()));
             intent.setData(uri);
             getContext().startActivity(intent);
         }

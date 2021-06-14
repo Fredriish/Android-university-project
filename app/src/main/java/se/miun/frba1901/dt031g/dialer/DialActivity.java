@@ -4,7 +4,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +21,12 @@ public class DialActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+
+        // Frågar om permissions till CALL_PHONE om det inte redan har blivit accepterat
+        String[] permissionsWanted = {Manifest.permission.CALL_PHONE};
+        if(checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+            requestPermissions(permissionsWanted, 1);
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
