@@ -15,4 +15,6 @@
     <string name="saved_dialnumbers_filename">dialnumbers.txt</string>
     <string name="dialnumbers_key">dialnumbersKey</string>
     <string name="no_numbers_found_message">No telephone numbers are stored</string>
+    <string name="downloadButtonText">DOWNLOAD</string>
+    <string name="downloadVoicesTitle">DOWNLOAD VOICES</string>
 </resources>

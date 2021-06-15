@@ -6,4 +6,8 @@
         android:id="@+id/overflowSettingsAlternative"
         android:title="Settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/overflowDownloadVoices"
+        android:title="@string/downloadVoicesTitle"
+        app:showAsAction="ifRoom" />
 </menu>

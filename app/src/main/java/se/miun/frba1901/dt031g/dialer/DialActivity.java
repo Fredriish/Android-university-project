@@ -35,11 +35,16 @@ public class DialActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent;
         switch(item.getItemId()){
             case R.id.overflowSettingsAlternative:
-                Intent intent = new Intent(this, SettingsActivity.class);
+                intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.overflowDownloadVoices:
+                intent = new Intent(this, DownloadActivity.class);
+                startActivity(intent);
+
             default:
                 return super.onOptionsItemSelected(item);
         }

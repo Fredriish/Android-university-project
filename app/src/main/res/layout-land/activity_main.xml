@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/aboutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="startAbout"
-        android:text="@string/about"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/optionRow1"
-        app:layout_constraintVertical_bias="0.47000003" />
-
     <TextView
         android:id="@+id/welcomeText"
         android:layout_width="@dimen/optionRowMaxWidth"
@@ -91,5 +78,32 @@
             android:onClick="startMaps"
             android:text="@string/map" />
     </TableRow>
+
+    <LinearLayout
+        android:layout_width="@dimen/optionRowMaxWidth"
+        android:layout_height="@dimen/optionRowMaxHeight"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optionRow2">
+
+        <Button
+            android:id="@+id/downloadButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/landScapeOptionMargin"
+            android:layout_weight="1"
+            android:onClick="startDownload"
+            android:text="@string/downloadButtonText" />
+
+        <Button
+            android:id="@+id/aboutButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/landScapeOptionMargin"
+            android:layout_weight="1"
+            android:onClick="startAbout"
+            android:text="@string/about" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

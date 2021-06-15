@@ -33,7 +33,7 @@
         android:id="@+id/dialButton"
         android:layout_width="@dimen/OptionWidth"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="130dp"
         android:onClick="startDialer"
         android:text="@string/dial"
         app:layout_constraintBottom_toTopOf="@+id/settingsButton"
@@ -66,10 +66,22 @@
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="80dp"
         android:text="@string/welcomeText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/downloadButton"
+        android:layout_width="@dimen/OptionWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:onClick="startDownload"
+        android:text="@string/downloadButtonText"
+        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
