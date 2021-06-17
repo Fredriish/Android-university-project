@@ -19,7 +19,7 @@ public class DialActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dial);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        ActionBar ab = getSupportActionBar();
+        ActionBar ab = getSupportActionBar(); 
         ab.setDisplayHomeAsUpEnabled(true);
 
         // Frågar om permissions till CALL_PHONE om det inte redan har blivit accepterat

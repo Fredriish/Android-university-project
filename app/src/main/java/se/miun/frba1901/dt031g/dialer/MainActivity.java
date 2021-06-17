@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void startDownload(View view){
         Intent intent = new Intent(this, DownloadActivity.class);
+        intent.putExtra("DOWNLOAD_SITE_URL", getString(R.string.voices_download_url));
+        intent.putExtra("VOICE_STORAGE_PATH", new File(getFilesDir(), Util.VOICE_DIR).toString());
+
         startActivity(intent);
     }
     public void startSettings(View view){
