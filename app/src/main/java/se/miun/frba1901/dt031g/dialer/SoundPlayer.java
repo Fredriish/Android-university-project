@@ -10,6 +10,7 @@ import android.os.storage.StorageManager;
 import android.util.Log;
 
 import androidx.loader.content.Loader;
+import androidx.preference.PreferenceManager;
 
 import java.io.File;
 import java.nio.file.FileSystems;
@@ -34,7 +35,10 @@ public class SoundPlayer {
         .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
         .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
         .build()).build();
-        loadSounds(context, "mamacita_us"); // Laddar ljud
+        String currentVoice = PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(context.getString(R.string.choose_voice_key),
+                        context.getString(R.string.default_voice));
+        loadSounds(context, currentVoice); // Laddar ljud
     }
     public static SoundPlayer getInstance(Context context){
         if(instance == null)
