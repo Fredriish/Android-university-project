@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
@@ -43,7 +44,11 @@ public class SettingsActivity extends AppCompatActivity {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
+            setupVoiceListPreference();
             setPreferenceClickListeners();
+        }
+        private void setupVoiceListPreference(){
+            ListPreference voiceList = (ListPreference) findPreference(getContext().getString(R.string.choose_voice_key));
         }
         private void setPreferenceClickListeners(){
             Preference deleteStoredNumbersPreference = findPreference(getContext()
@@ -56,6 +61,7 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             });
         }
+
         /* Tömmer nummren som har sparats med hjälp av sharedpreference API */
         public void deleteStoredNumbers(){
             SharedPreferences dialNumberPreferences = getContext().getSharedPreferences(getContext()

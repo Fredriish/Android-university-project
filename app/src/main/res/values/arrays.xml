@@ -9,4 +9,13 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+    <string-array name="voiceData">
+        <item>Rost 1</item>
+        <item>Rost 2</item>
+    </string-array>
+    <string-array name="voiceEntry">
+       <item>0</item>
+        <item>0</item>
+    </string-array>
+
 </resources>

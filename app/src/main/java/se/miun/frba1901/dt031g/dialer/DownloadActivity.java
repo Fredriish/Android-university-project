@@ -71,6 +71,8 @@ public class DownloadActivity extends AppCompatActivity {
             @Override
             public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
                 try {
+                    String filename = url.substring(url.lastIndexOf('/') + 1, url.length() - 1);
+                    progressTitleText.setText(filename);
                     progressContainer.setVisibility(View.VISIBLE);
                     URL downloadUrl = new URL(url);
                     DownloadVoiceZip asyncDownload = new DownloadVoiceZip();
@@ -84,6 +86,7 @@ public class DownloadActivity extends AppCompatActivity {
     }
     private class DownloadVoiceZip extends AsyncTask<URL, Integer, Long>{
         private File voicesDirectory;
+
         public DownloadVoiceZip() {
             super();
             String voicesPath = getIntent().getExtras().getString("VOICE_STORAGE_PATH");
@@ -93,7 +96,22 @@ public class DownloadActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            progressBar.setMax(getResources().getInteger(R.integer.voice_download_progressbar_max));
+            progressBar.setMin(0);
+        }
 
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            progressBar.setProgress(values[0]);
+            String progressStr = values[0] + "%";
+            progressText.setText(progressStr);
+        }
+
+        @Override
+        protected void onPostExecute(Long aLong) {
+            super.onPostExecute(aLong);
+            progressContainer.setVisibility(View.INVISIBLE);
         }
 
         @Override
@@ -108,17 +126,24 @@ public class DownloadActivity extends AppCompatActivity {
                     if(voiceZipFile.exists()) // Om filen som vi ska skriva till redan finns så tar vi bort den
                         voiceZipFile.delete();
 
-                    // Öppnar en anslutning till url
+                    // Öppnar en anslutning till url och sparar hur mycket data som finns att ladda ner
                     URLConnection connection = downloadUrl.openConnection();
                     connection.connect();
+                    int fileDownloadSize = connection.getContentLength();
                     InputStream stream = connection.getInputStream();
 
                     // Skapar FileOutputStream som vi använder för att skriva data från URLen till filen
                     fileOutput = new FileOutputStream(voiceZipFile);
                     byte[] buffer = new byte[bufferSize];
+                    int totalBytesRead = 0;
                     int read;
                     while ((read = stream.read(buffer)) != -1) {
                         fileOutput.write(buffer, 0, read);
+                        totalBytesRead += read; // Lägger till antalet bytes som vi har läst
+
+                        // Räknar antalet procent i progressbaren och publishar det
+                        int progress = (int) ((totalBytesRead * progressBar.getMax()) / (float) fileDownloadSize);
+                        publishProgress(progress);
                     }
                     fileOutput.flush();
 

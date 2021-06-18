@@ -10,5 +10,10 @@
         android:icon="@drawable/ic_baseline_delete_forever_24"
         android:key="@string/delete_stored_numbers_key"
         android:summary="Delete stored telephone numbers from storage"
-        android:title="Delete stored numbers"></Preference>
+        android:title="Delete stored numbers"/>
+    <ListPreference
+        android:icon="@drawable/ic_baseline_record_voice_over_24"
+        android:key="@string/choose_voice_key"
+        android:title="Voice"/>
+
 </PreferenceScreen>

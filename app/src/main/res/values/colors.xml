@@ -15,4 +15,5 @@
     <color name="green">#388e3c</color>
     <color name="green_light">#6abf69</color>
     <color name="green_dark">#00600f</color>
+    <color name="voice_download_progressbar">#B4C6D9</color>
 </resources>
