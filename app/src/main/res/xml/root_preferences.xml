@@ -14,6 +14,7 @@
     <ListPreference
         android:icon="@drawable/ic_baseline_record_voice_over_24"
         android:key="@string/choose_voice_key"
-        android:title="Voice"/>
+        android:title="Voice"
+        android:defaultValue="@string/default_voice"/>
 
 </PreferenceScreen>

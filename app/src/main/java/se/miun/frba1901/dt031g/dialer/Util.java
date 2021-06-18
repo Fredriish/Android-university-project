@@ -230,4 +230,12 @@ public class Util {
         // We return true if the amount of files matches the amount of filenames that should exist
         return soundFiles.length == DEFAULT_VOICE_FILE_NAMES.size();
     }
+
+    /**
+     * Gets the directory that holds the voices
+     * @return Returns the directory that contains all the voice directories
+     */
+    public static File getVoicesDir(Context context){
+        return new File(getInternalStorageDir(context), VOICE_DIR);
+    }
 }

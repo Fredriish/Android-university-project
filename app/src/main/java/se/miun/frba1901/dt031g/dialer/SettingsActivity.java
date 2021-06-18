@@ -15,6 +15,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -48,7 +49,23 @@ public class SettingsActivity extends AppCompatActivity {
             setPreferenceClickListeners();
         }
         private void setupVoiceListPreference(){
-            ListPreference voiceList = (ListPreference) findPreference(getContext().getString(R.string.choose_voice_key));
+            ListPreference voiceListPreference = (ListPreference) findPreference(getContext().getString(R.string.choose_voice_key));
+            File voicesDir = Util.getVoicesDir(getContext());
+            if(voicesDir.exists()) {
+                CharSequence[] availableVoices = voicesDir.list();
+                voiceListPreference.setEntries(availableVoices);
+                voiceListPreference.setEntryValues(availableVoices);
+            }
+            voiceListPreference.setSummary(voiceListPreference.getEntry());
+
+            // Ändrar summary till nuvarande preference varje gång det ändras
+            voiceListPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    voiceListPreference.setSummary(newValue.toString());
+                    return true;
+                }
+            });
         }
         private void setPreferenceClickListeners(){
             Preference deleteStoredNumbersPreference = findPreference(getContext()
