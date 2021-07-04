@@ -61,10 +61,12 @@ public class SoundPlayer {
         soundPool.play(soundMap.get(str), 1f, 1f, 1, 0, 1f);
     }
     public void destroy(){
-        soundPool.release();
+        if(soundPool != null)
+            soundPool.release();
         soundPool = null;
         instance = null;
-        soundMap.clear();
+        if(soundMap != null)
+            soundMap.clear();
         soundMap = null;
     }
 }

@@ -63,6 +63,7 @@ public class SettingsActivity extends AppCompatActivity {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
                     voiceListPreference.setSummary(newValue.toString());
+                    SoundPlayer.getInstance(getContext()).destroy(); // Tar bort nuvarande röst
                     return true;
                 }
             });
