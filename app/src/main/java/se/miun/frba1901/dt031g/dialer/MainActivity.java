@@ -3,6 +3,8 @@ package se.miun.frba1901.dt031g.dialer;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupDeviceSoundFiles();
+        DialDatabaseManager.getInstance(this); // Initierar singleton klass för databas
     }
 
     /** Kopierar voice filerna till enheten */

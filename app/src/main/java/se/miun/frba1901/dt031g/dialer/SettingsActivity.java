@@ -82,13 +82,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         /* Tömmer nummren som har sparats med hjälp av sharedpreference API */
         public void deleteStoredNumbers(){
-            SharedPreferences dialNumberPreferences = getContext().getSharedPreferences(getContext()
-                    .getString(R.string.saved_dialnumbers_filename), Context.MODE_PRIVATE);
-
-            Set<String> newNumberSet = new HashSet<String>();
-            SharedPreferences.Editor editor = dialNumberPreferences.edit();
-            editor.putStringSet(getContext().getString(R.string.dialnumbers_key), newNumberSet);
-            editor.apply();
+            DialDatabaseManager.getInstance(getContext()).deleteAll();
         }
     }
 }

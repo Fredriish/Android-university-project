@@ -1,6 +1,7 @@
 package se.miun.frba1901.dt031g.dialer;
 
 import android.content.Context;
+import android.location.Location;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,9 @@ public class Dialpad extends ConstraintLayout {
         dialerTextView = (DialerTextView)findViewById(R.id.dialerTextView); // Hämtar referens till DialerTextView
         setupDialpadButtons(); // Hämtar referenser till alla knapparna och fixar OnClickListeners osv
     }
-
+    public void updateLocationData(Location location){
+        dialerTextView.updateLocationData(location);
+    }
     /**
      * @brief Sätter onClickListeners på DialpadButtons
      * @param buttons Knapparna som onClickListeners ska sättas på

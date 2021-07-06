@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <se.miun.frba1901.dt031g.dialer.Dialpad
+        android:id="@+id/dialpad"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_marginTop="@dimen/toolbar_height"

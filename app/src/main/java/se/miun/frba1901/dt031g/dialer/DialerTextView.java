@@ -8,6 +8,9 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.location.Location;
+import android.location.LocationManager;
+import android.location.LocationProvider;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.View;
@@ -21,8 +24,18 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,6 +43,7 @@ public class DialerTextView extends ConstraintLayout {
     TextView mainText = null;
     ImageView eraseImage = null;
     ImageView dialImage = null;
+    Location userLocation = null;
     public DialerTextView(@NonNull Context context) {
         super(context);
         init(null);
@@ -102,20 +116,19 @@ public class DialerTextView extends ConstraintLayout {
             getContext().startActivity(intent);
         }
     }
-    /* Sparar nummret med hjälp av sharedpreference API */
+    public void updateLocationData(Location location){
+        userLocation = location;
+    }
+    /* Sparar nummret */
     private void saveNumber(CharSequence number){
-        SharedPreferences dialNumberPreferences = getContext().getSharedPreferences(getContext()
-                .getString(R.string.saved_dialnumbers_filename), Context.MODE_PRIVATE);
-
-        Set<String> baseNumberSet = dialNumberPreferences
-                .getStringSet(getContext().getString(R.string.dialnumbers_key), null);
-        Set<String> newNumberSet = new HashSet<String>();
-        if(baseNumberSet != null)
-            newNumberSet.addAll(baseNumberSet);
-        newNumberSet.add(number.toString());
-        SharedPreferences.Editor editor = dialNumberPreferences.edit();
-        editor.putStringSet(getContext().getString(R.string.dialnumbers_key), newNumberSet);
-        editor.apply();
+        DialNumber dialData = new DialNumber();
+        dialData.number = number.toString();
+        if(userLocation != null){
+            dialData.longitude = userLocation.getLongitude();
+            dialData.latitude = userLocation.getLatitude();
+        }
+        dialData.date = Calendar.getInstance().getTime().toString();
+        DialDatabaseManager.getInstance(getContext()).insertAll(dialData);
     }
 
     /**
