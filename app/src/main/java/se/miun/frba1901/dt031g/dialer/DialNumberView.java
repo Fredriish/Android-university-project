@@ -5,6 +5,9 @@ import android.graphics.Color;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * @brief custom view som används för att visa information relaterat till ett telefonnummer
+ */
 public class DialNumberView extends LinearLayout {
     private DialNumber dialNumber;
     private float mainTextSize;

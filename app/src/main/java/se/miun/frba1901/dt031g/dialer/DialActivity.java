@@ -24,7 +24,8 @@ import java.io.File;
 public class DialActivity extends AppCompatActivity {
     private FusedLocationProviderClient fusedLocationClient;
     private Dialpad dialpad;
-    private final int LOCATION_UPDATE_INTERVAL_MS = 2000;
+    private final int LOCATION_UPDATE_INTERVAL_MS = 5000; // Anger hur ofta location requests ska göras
+    private final int LOCATION_FASTEST_UPDATE_INTERVAL_MS = 3000; // Anger hur ofta location requests kan tas emot från andra tjänster
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +41,15 @@ public class DialActivity extends AppCompatActivity {
                 Manifest.permission.ACCESS_FINE_LOCATION};
 
         requestPermissions(permissionsWanted, 1);
+        // Om vi har ACCESS_FINE_LOCATION permission så sätter vi upp en FusedLocationProviderClient
+        // för att uppdatera locations i ett interval
         if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED){
             fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
             LocationRequest locationRequest = LocationRequest.create();
-            locationRequest.setPriority(LocationRequest.PRIORITY_LOW_POWER);
+            locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+            locationRequest.setInterval(LOCATION_UPDATE_INTERVAL_MS);
+            locationRequest.setFastestInterval(LOCATION_FASTEST_UPDATE_INTERVAL_MS);
             LocationCallback locationCallback = new LocationCallback(){
                 @Override
                 public void onLocationResult(LocationResult locationResult){
@@ -52,7 +57,7 @@ public class DialActivity extends AppCompatActivity {
                         return;
                     }
                     for(Location location : locationResult.getLocations()){
-                        dialpad.updateLocationData(location);
+                        dialpad.updateLocationData(location); // Skickar vidare datan till dialpad
                     }
                 }
             };

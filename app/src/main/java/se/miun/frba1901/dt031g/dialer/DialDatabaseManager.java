@@ -7,6 +7,9 @@ import androidx.room.Room;
 
 import java.util.List;
 
+/**
+ * @brief Singleton klass för att nå databasen
+ */
 public class DialDatabaseManager {
     private static DialDatabaseManager instance = null;
     private DialNumberDatabase database;

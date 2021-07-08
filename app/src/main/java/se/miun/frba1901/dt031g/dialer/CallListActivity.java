@@ -53,6 +53,7 @@ public class CallListActivity extends AppCompatActivity {
     }
 
     private void createDialList(LinearLayout container){
+        // Vi observar LiveData och skriver nedanstående kod som en callback
         DialDatabaseManager.getInstance(this).getAll().observe(this, dialnumbers -> {
             if(dialnumbers.size() == 0){
                 container.removeAllViews();

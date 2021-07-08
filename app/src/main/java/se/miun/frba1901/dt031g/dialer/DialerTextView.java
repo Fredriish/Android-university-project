@@ -37,6 +37,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
 public class DialerTextView extends ConstraintLayout {
@@ -127,7 +128,19 @@ public class DialerTextView extends ConstraintLayout {
             dialData.longitude = userLocation.getLongitude();
             dialData.latitude = userLocation.getLatitude();
         }
-        dialData.date = Calendar.getInstance().getTime().toString();
+        else {
+            dialData.longitude = null;
+            dialData.latitude = null;
+        }
+        String month = Calendar.getInstance().getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH);
+        String day = Integer.toString(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        String year = Integer.toString(Calendar.getInstance().get(Calendar.YEAR));
+        String time = Calendar.getInstance().get(Calendar.HOUR) + ":" +
+                Calendar.getInstance().get(Calendar.MINUTE) + ":" +
+                Calendar.getInstance().get(Calendar.SECOND) + " " +
+                Calendar.getInstance().getDisplayName(Calendar.AM_PM, Calendar.LONG, Locale.ENGLISH);
+
+        dialData.date = month + " " + day + ", " + year + " " + time;
         DialDatabaseManager.getInstance(getContext()).insertAll(dialData);
     }
 
